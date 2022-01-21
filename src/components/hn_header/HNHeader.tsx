@@ -1,0 +1,1 @@
+export const HNHeader = () => <h1> // ... latest on Hacker News </h1>

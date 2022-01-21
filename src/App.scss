@@ -1,0 +1,117 @@
+
+$text: #bfbebe; 
+$text-secondary: #848886;
+$text-highlighted: #ebebeb;
+$background: #272727;
+$background-secondary: #393C3E;
+$border: #272727;
+
+$font-stack: Arial, Helvetica, sans-serif;
+
+@mixin keyframes($name){
+    @keyframes #{$name}{
+        @content;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: $font-stack;
+    background-color: $background;
+    width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    margin-bottom: 1vh;
+    padding: 0;
+}
+
+.home {
+    height: 100vh;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+    padding-bottom: 200px;
+
+    h1 {
+        color: $text-secondary;
+        font-size: 20px;
+        font-weight: 300;
+        margin-top: 5vh;
+        margin-bottom: 26px;
+        display: inline-block;
+    }
+
+    .title-container {
+        display: flex;
+        align-items: center;
+
+    }
+
+    #dummy-pic {
+        height: 50px;
+        width: 40px;
+        margin: 10px;
+    }
+}
+
+.body {
+    background-color: $background-secondary;
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    
+    .item {
+        border-bottom: 1px solid $border;
+        padding: 14px 24px;
+        &:last-child {
+            border-bottom: none
+        }
+    }
+
+    a {
+        text-decoration: none;
+        display: inline-block;
+        :hover {
+            color: $text-highlighted;
+        }
+    }
+
+    h3 {
+        color: $text;
+        margin-top: 0;
+        margin-bottom: 6px;
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+
+    span {
+        color: $text-secondary;
+        font-size: 12px;
+    }
+}
+
+.bouncing-loader {
+    display: flex;
+    
+    .loader__dot {
+        font-size: 36px;
+        margin: 3px 3px;
+        border-radius: 50%;
+        color: $text-secondary;
+      }
+
+      @include keyframes(blink) {
+        50% { color: transparent }
+      }
+      .loader__dot { animation: 1s blink infinite }
+      .loader__dot:nth-child(2) { animation-delay: 250ms }
+      .loader__dot:nth-child(3) { animation-delay: 500ms }
+}
